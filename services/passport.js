@@ -14,9 +14,13 @@ passport.use(
       clientSecret: googleClientSecret,
       callbackURL: "/auth/google/callback",
     },
-    (accessToken, refreshToken, profile, done) => {
-      // Create Model instance then save it to DB
-      new User({ googleId: profile.id }).save();
+    async (accessToken, refreshToken, profile, done) => {
+      const existingUser = await User.findOne({ googleId: profile.id });
+      if (existingUser) {
+        done(null, existingUser);
+      } else {
+        new User({ googleId: profile.id }).save().then(user => done(null, user));
+      }
     }
   )
 );
