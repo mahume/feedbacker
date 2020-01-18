@@ -11,4 +11,9 @@ module.exports = app => {
   );
   // Callback URL Route with code
   app.get("/auth/google/callback", passport.authenticate("google"));
+
+  // Test that I logged in
+  app.get("/api/current_user", (req, res) => {
+    res.send(req.user);
+  });
 };
