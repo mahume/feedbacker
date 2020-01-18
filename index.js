@@ -2,6 +2,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 const authRoutes = require("./routes/authRoutes");
 const { mongoURI } = require("./config/keys");
+require("./models/User");
 require("./services/passport");
 
 // DB Connection
