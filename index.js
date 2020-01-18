@@ -16,6 +16,7 @@ mongoose.connect(mongoURI, {
 // Create Express instance
 const app = express();
 
+// MIDDLEWARES
 // Enable cookies within app
 app.use(
   cookieSession({
