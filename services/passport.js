@@ -6,6 +6,8 @@ const { googleClientID, googleClientSecret } = require("../config/keys");
 // Fetch Schema
 const User = mongoose.model("users");
 
+passport.serializeUser((user, done) => done(null, user.id));
+
 // New instance of Strategy
 passport.use(
   new GoogleStrategy(
