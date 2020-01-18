@@ -6,7 +6,14 @@ const { googleClientID, googleClientSecret } = require("../config/keys");
 // Fetch Schema
 const User = mongoose.model("users");
 
+// Get Mongoose Model's _id from Mongo
 passport.serializeUser((user, done) => done(null, user.id));
+
+// Convert ID to Mongoose Model's _id
+passport.deserializeUser(async (id, done) => {
+  const user = await User.findById(id);
+  done(null, user);
+});
 
 // New instance of Strategy
 passport.use(
