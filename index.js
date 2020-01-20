@@ -24,6 +24,7 @@ app.use(
     keys: [cookieKey],
   })
 );
+
 // Enable Passport to use cookies for OAuth
 app.use(passport.initialize());
 app.use(passport.session());
