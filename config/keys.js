@@ -1,11 +1,8 @@
-const production = require("./prod");
-const development = require("./dev");
-
 switch (process.env.NODE_ENV) {
   case "production":
-    module.exports = production;
+    module.exports = require("./prod");
     break;
   default:
-    module.exports = development;
+    module.exports = require("./dev");
     break;
 }
