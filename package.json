@@ -8,8 +8,11 @@
     "npm": "5.0.3"
   },
   "scripts": {
-    "start": "node index.js",
-    "dev": "nodemon index.js"
+    "start": "per-env",
+    "start:development": "concurrently \"npm:server\" \"npm:client\"",
+    "server": "nodemon --ignore 'client/*'",
+    "client": "cd client && npm run start",
+    "install": "cd client && npm install"
   },
   "keywords": [],
   "author": "",
@@ -19,9 +22,11 @@
     "express": "^4.17.1",
     "mongoose": "^5.8.9",
     "passport": "^0.4.1",
-    "passport-google-oauth20": "^2.0.0"
+    "passport-google-oauth20": "^2.0.0",
+    "per-env": "^1.0.2"
   },
   "devDependencies": {
+    "concurrently": "^5.0.2",
     "eslint": "^6.8.0",
     "eslint-config-airbnb": "^18.0.1",
     "eslint-config-prettier": "^6.9.0",
