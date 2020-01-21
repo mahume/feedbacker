@@ -1,13 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './App';
+import App from './pages/App/index';
 import Store from "./context/Store";
-import * as serviceWorker from './serviceWorker';
+import * as serviceWorker from './util/serviceWorker';
 
 ReactDOM.render(
   <Store>
-    <App />
-  </Store>, 
+    <App /> 
+  </Store>,
   document.getElementById("root")
 );
 

@@ -1,7 +1,15 @@
 import React, { createContext, useState } from "react";
 
-const Store = ({ children }) => {
+export const Dummy = createContext(null);
 
+const Store = ({ children }) => {
+  const [dummy, setDummy] = useState(null);
+
+  return (
+    <Dummy.Provider value={[dummy, setDummy]}>
+      {children}
+    </Dummy.Provider>
+  )
 }
 
 export default Store;
