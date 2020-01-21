@@ -4,6 +4,7 @@ import { AuthContext } from "../../context/Store";
 import Landing from "../pages/Landing/index.jsx";
 import Dashboard from "../pages/Dashboard/index.jsx";
 import NewSurvey from "../pages/NewSurvey/index.jsx";
+import Header from "../../components/Header/index.jsx";
 
 const App = () => {
   const [auth, setAuth] = useContext(AuthContext)
@@ -11,11 +12,14 @@ const App = () => {
   return (
     <div>
       <BrowserRouter>
-        <Switch>
-          <Route path="/" component={Landing} exact />
-          <Route path="/surveys" component={Dashboard} exact />
-          <Route path="/surveys/new" component={NewSurvey} />
-        </Switch>
+        <>
+          <Header />
+          <Switch>
+            <Route path="/" component={Landing} exact />
+            <Route path="/surveys" component={Dashboard} exact />
+            <Route path="/surveys/new" component={NewSurvey} />
+          </Switch>
+        </>
       </BrowserRouter>
     </div>
   );
