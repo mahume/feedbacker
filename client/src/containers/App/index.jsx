@@ -4,16 +4,16 @@ import { AuthContext } from "../../context/Store";
 import Landing from "../pages/Landing/index.jsx";
 import Dashboard from "../pages/Dashboard/index.jsx";
 import NewSurvey from "../pages/NewSurvey/index.jsx";
-import Header from "../../components/Header/index.jsx";
+import Navbar from "../../components/Navbar/index.jsx";
 
 const App = () => {
   const [auth, setAuth] = useContext(AuthContext)
 
   return (
-    <div>
+    <div className="container">
       <BrowserRouter>
         <>
-          <Header />
+          <Navbar />
           <Switch>
             <Route path="/" component={Landing} exact />
             <Route path="/surveys" component={Dashboard} exact />

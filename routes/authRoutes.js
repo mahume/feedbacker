@@ -22,9 +22,4 @@ module.exports = app => {
   app.get("/api/current_user", (req, res) => {
     res.send(req.user);
   });
-
-  // test
-  app.get("/api/greet", (req, res) => {
-    res.json({ message: "Hello curl" });
-  });
 };
