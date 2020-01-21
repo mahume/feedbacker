@@ -1,14 +1,14 @@
 import React, { createContext, useState } from "react";
 
-export const Dummy = createContext(null);
+export const AuthContext = createContext("Nope");
 
 const Store = ({ children }) => {
-  const [dummy, setDummy] = useState(null);
+  const [auth, setAuth] = useState("Nope");
 
   return (
-    <Dummy.Provider value={[dummy, setDummy]}>
+    <AuthContext.Provider value={[auth, setAuth]}>
       {children}
-    </Dummy.Provider>
+    </AuthContext.Provider>
   )
 }
 
