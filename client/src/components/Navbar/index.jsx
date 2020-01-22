@@ -1,8 +1,14 @@
 import React, { useState, useContext } from "react";
+import axios from "axios";
 import { IsLoggedInContext } from "../../context/Store";
 
 const Navbar = () => {
   const [isLoggedIn, setIsLoggedIn] = useContext(IsLoggedInContext);
+
+  const logout = async () => {
+    const user = await axios.get("/api/logout")
+    setIsLoggedIn(false);
+  }
 
   const renderLoggedIn = () => {
     switch (isLoggedIn) {
@@ -11,7 +17,7 @@ const Navbar = () => {
       case false:
         return <li><a href="/auth/google">Login with Google</a></li>;
       default:
-        return <li><a>Logout</a></li>;
+        return <li><a onClick={logout}>Logout</a></li>;
     }
   }
 

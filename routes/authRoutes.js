@@ -10,7 +10,9 @@ module.exports = app => {
     })
   );
   // Callback URL Route with code
-  app.get("/auth/google/callback", passport.authenticate("google"));
+  app.get("/auth/google/callback", passport.authenticate("google"), (req, res) => {
+    res.redirect("/surveys");
+  });
 
   // Logout user
   app.get("/api/logout", (req, res) => {
@@ -21,9 +23,5 @@ module.exports = app => {
   // Test that I logged in
   app.get("/api/current_user", (req, res) => {
     res.send(req.user);
-  });
-
-  app.get("/api/test", (req, res) => {
-    res.json({ message: "test" });
   });
 };
