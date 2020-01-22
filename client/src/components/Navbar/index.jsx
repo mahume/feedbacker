@@ -1,4 +1,5 @@
 import React, { useState, useContext } from "react";
+import { Link } from "react-router-dom";
 import axios from "axios";
 import { IsLoggedInContext } from "../../context/Store";
 
@@ -24,7 +25,12 @@ const Navbar = () => {
   return (
     <nav>
       <div className="nav-wrapper">
-        <a href="/" className="left brand-logo">Feedbacker</a>
+        <Link 
+          to={isLoggedIn ? "/surveys" : "/"} 
+          className="left brand-logo"
+        >
+          Feedbacker
+        </Link>
         <ul className="right">
           {renderLoggedIn()}
         </ul>
