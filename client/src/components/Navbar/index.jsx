@@ -7,11 +7,11 @@ const Navbar = () => {
   const renderLoggedIn = () => {
     switch (isLoggedIn) {
       case null:
-        return "Loading";
+        return <li><p>Loading</p></li>;
       case false:
-        return "Logged out";
+        return <li><a href="/auth/google">Login with Google</a></li>;
       default:
-        return "Logged in";
+        return <li><a>Logout</a></li>;
     }
   }
 
@@ -20,10 +20,7 @@ const Navbar = () => {
       <div className="nav-wrapper">
         <a href="/" className="left brand-logo">Feedbacker</a>
         <ul className="right">
-          <li>
-            <p>{renderLoggedIn()}</p>
-            <a href="/api/test">Login with Google</a>
-          </li>
+          {renderLoggedIn()}
         </ul>
       </div>
     </nav>
