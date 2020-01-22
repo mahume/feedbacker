@@ -1,12 +1,12 @@
-import React, { useState } from "react";
+import React from "react";
 
 const Navbar = () => {
   return (
     <nav>
       <div className="nav-wrapper">
-        <a className="left brand-logo">Feedbacker</a>
+        <a href="/" className="left brand-logo">Feedbacker</a>
         <ul className="right">
-          <li><a>Login with Google</a></li>
+          <li><a href="/api/test">Login with Google</a></li>
         </ul>
       </div>
     </nav>
