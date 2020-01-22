@@ -1,15 +1,15 @@
 import React, { createContext, useState } from "react";
 
-export const AuthContext = createContext("Nope");
+export const IsLoggedInContext = createContext(null);
 export const SurveyContext = createContext({});
 
 const Store = ({ children }) => {
-  const [auth, setAuth] = useState("Nope");
+  const [isLoggedIn, setIsLoggedIn] = useState(null);
 
   return (
-    <AuthContext.Provider value={[auth, setAuth]}>
+    <IsLoggedInContext.Provider value={[isLoggedIn, setIsLoggedIn]}>
       {children}
-    </AuthContext.Provider>
+    </IsLoggedInContext.Provider>
   )
 }
 

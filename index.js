@@ -8,10 +8,13 @@ require("./models/User");
 require("./services/passport");
 
 // DB Connection
-mongoose.connect(mongoURI, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-});
+mongoose
+  .connect(mongoURI, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  })
+  .then(() => console.log("Connected to DB"))
+  .catch(err => console.error(err));
 
 // Create Express instance
 const app = express();
